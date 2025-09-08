@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=./node_modules/envio/evm.schema.json
+name: envio-indexer
+networks:
+- id: 10143
+  start_block: 0
+  contracts:
+  - name: KingdomlyNFT
+    address:
+    - 0xD20EF03E432208af083C0fb4e401049F4F29949F
+    handler: src/EventHandlers.ts
+    events:
+    - event: Approval(address indexed owner, address indexed approved, uint256 indexed tokenId)
+    - event: ApprovalForAll(address indexed owner, address indexed operator, bool approved)
+    - event: BatchMetadataUpdate(uint256 indexed fromTokenId, uint256 indexed toTokenId)
+    - event: ConsecutiveTransfer(uint256 indexed fromTokenId, uint256 toTokenId, address indexed from, address indexed to)
+    - event: KingdomlyFeeContractChanged(address feeContractAddress)
+    - event: MaxMintPerWalletChanged(uint256 newMaxMintPerWallet, uint256 mintGroupId)
+    - event: OwnershipTransferred(address indexed previousOwner, address indexed newOwner)
+    - event: PreSaleMintScheduledStartTimestampChanged(uint256 timestamp, uint256 mintGroupId)
+    - event: PreSaleMintStatusChanged(bool status, uint256 mintGroupId)
+    - event: SalePriceChanged(uint256 indexed mintId, uint256 newPrice)
+    - event: TokensDelegateMinted(address indexed vault, address indexed hotWallet, uint256 amount, uint256 mintId)
+    - event: TokensMinted(address indexed recipient, uint256 amount, uint256 mintId)
+    - event: Transfer(address indexed from, address indexed to, uint256 indexed tokenId)
+unordered_multichain_mode: true
+preload_handlers: true

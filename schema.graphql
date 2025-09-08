@@ -1,0 +1,85 @@
+type KingdomlyNFT_Approval {
+  id: ID!
+  owner: String!
+  approved: String!
+  tokenId: BigInt!
+}
+
+type KingdomlyNFT_ApprovalForAll {
+  id: ID!
+  owner: String!
+  operator: String!
+  approved: Boolean!
+}
+
+type KingdomlyNFT_BatchMetadataUpdate {
+  id: ID!
+  fromTokenId: BigInt!
+  toTokenId: BigInt!
+}
+
+type KingdomlyNFT_ConsecutiveTransfer {
+  id: ID!
+  fromTokenId: BigInt!
+  toTokenId: BigInt!
+  from: String!
+  to: String!
+}
+
+type KingdomlyNFT_KingdomlyFeeContractChanged {
+  id: ID!
+  feeContractAddress: String!
+}
+
+type KingdomlyNFT_MaxMintPerWalletChanged {
+  id: ID!
+  newMaxMintPerWallet: BigInt!
+  mintGroupId: BigInt!
+}
+
+type KingdomlyNFT_OwnershipTransferred {
+  id: ID!
+  previousOwner: String!
+  newOwner: String!
+}
+
+type KingdomlyNFT_PreSaleMintScheduledStartTimestampChanged {
+  id: ID!
+  timestamp: BigInt!
+  mintGroupId: BigInt!
+}
+
+type KingdomlyNFT_PreSaleMintStatusChanged {
+  id: ID!
+  status: Boolean!
+  mintGroupId: BigInt!
+}
+
+type KingdomlyNFT_SalePriceChanged {
+  id: ID!
+  mintId: BigInt!
+  newPrice: BigInt!
+}
+
+type KingdomlyNFT_TokensDelegateMinted {
+  id: ID!
+  vault: String!
+  hotWallet: String!
+  amount: BigInt!
+  mintId: BigInt!
+}
+
+type KingdomlyNFT_TokensMinted {
+  id: ID!
+  recipient: String!
+  amount: BigInt!
+  mintId: BigInt!
+}
+
+type KingdomlyNFT_Transfer {
+  id: ID!
+  from: String!
+  to: String!
+  tokenId: BigInt!
+}
+
