@@ -1,24 +1,11 @@
 /*
  * Please refer to https://docs.envio.dev for a thorough guide on all Envio indexer features
  */
-import {
-  KingdomlyNFT,
-  KingdomlyNFT_Approval,
-  KingdomlyNFT_ApprovalForAll,
-  KingdomlyNFT_BatchMetadataUpdate,
-  KingdomlyNFT_ConsecutiveTransfer,
-  KingdomlyNFT_KingdomlyFeeContractChanged,
-  KingdomlyNFT_MaxMintPerWalletChanged,
-  KingdomlyNFT_OwnershipTransferred,
-  KingdomlyNFT_PreSaleMintScheduledStartTimestampChanged,
-  KingdomlyNFT_PreSaleMintStatusChanged,
-  KingdomlyNFT_SalePriceChanged,
-  KingdomlyNFT_TokensDelegateMinted,
-  KingdomlyNFT_TokensMinted,
-  KingdomlyNFT_Transfer,
-} from "generated";
+import { indexer, KingdomlyNFT_Approval, KingdomlyNFT_ApprovalForAll, KingdomlyNFT_BatchMetadataUpdate, KingdomlyNFT_ConsecutiveTransfer, KingdomlyNFT_KingdomlyFeeContractChanged, KingdomlyNFT_MaxMintPerWalletChanged, KingdomlyNFT_OwnershipTransferred, KingdomlyNFT_PreSaleMintScheduledStartTimestampChanged, KingdomlyNFT_PreSaleMintStatusChanged, KingdomlyNFT_SalePriceChanged, KingdomlyNFT_TokensDelegateMinted, KingdomlyNFT_TokensMinted, KingdomlyNFT_Transfer } from "envio";
 
-KingdomlyNFT.Approval.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "KingdomlyNFT", event: "Approval" },
+  async ({ event, context }) => {
   const entity: KingdomlyNFT_Approval = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
     owner: event.params.owner,
@@ -27,9 +14,12 @@ KingdomlyNFT.Approval.handler(async ({ event, context }) => {
   };
 
   context.KingdomlyNFT_Approval.set(entity);
-});
+}
+);
 
-KingdomlyNFT.ApprovalForAll.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "KingdomlyNFT", event: "ApprovalForAll" },
+  async ({ event, context }) => {
   const entity: KingdomlyNFT_ApprovalForAll = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
     owner: event.params.owner,
@@ -38,9 +28,12 @@ KingdomlyNFT.ApprovalForAll.handler(async ({ event, context }) => {
   };
 
   context.KingdomlyNFT_ApprovalForAll.set(entity);
-});
+}
+);
 
-KingdomlyNFT.BatchMetadataUpdate.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "KingdomlyNFT", event: "BatchMetadataUpdate" },
+  async ({ event, context }) => {
   const entity: KingdomlyNFT_BatchMetadataUpdate = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
     fromTokenId: event.params.fromTokenId,
@@ -48,9 +41,12 @@ KingdomlyNFT.BatchMetadataUpdate.handler(async ({ event, context }) => {
   };
 
   context.KingdomlyNFT_BatchMetadataUpdate.set(entity);
-});
+}
+);
 
-KingdomlyNFT.ConsecutiveTransfer.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "KingdomlyNFT", event: "ConsecutiveTransfer" },
+  async ({ event, context }) => {
   const entity: KingdomlyNFT_ConsecutiveTransfer = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
     fromTokenId: event.params.fromTokenId,
@@ -60,18 +56,24 @@ KingdomlyNFT.ConsecutiveTransfer.handler(async ({ event, context }) => {
   };
 
   context.KingdomlyNFT_ConsecutiveTransfer.set(entity);
-});
+}
+);
 
-KingdomlyNFT.KingdomlyFeeContractChanged.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "KingdomlyNFT", event: "KingdomlyFeeContractChanged" },
+  async ({ event, context }) => {
   const entity: KingdomlyNFT_KingdomlyFeeContractChanged = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
     feeContractAddress: event.params.feeContractAddress,
   };
 
   context.KingdomlyNFT_KingdomlyFeeContractChanged.set(entity);
-});
+}
+);
 
-KingdomlyNFT.MaxMintPerWalletChanged.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "KingdomlyNFT", event: "MaxMintPerWalletChanged" },
+  async ({ event, context }) => {
   const entity: KingdomlyNFT_MaxMintPerWalletChanged = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
     newMaxMintPerWallet: event.params.newMaxMintPerWallet,
@@ -79,9 +81,12 @@ KingdomlyNFT.MaxMintPerWalletChanged.handler(async ({ event, context }) => {
   };
 
   context.KingdomlyNFT_MaxMintPerWalletChanged.set(entity);
-});
+}
+);
 
-KingdomlyNFT.OwnershipTransferred.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "KingdomlyNFT", event: "OwnershipTransferred" },
+  async ({ event, context }) => {
   const entity: KingdomlyNFT_OwnershipTransferred = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
     previousOwner: event.params.previousOwner,
@@ -89,9 +94,12 @@ KingdomlyNFT.OwnershipTransferred.handler(async ({ event, context }) => {
   };
 
   context.KingdomlyNFT_OwnershipTransferred.set(entity);
-});
+}
+);
 
-KingdomlyNFT.PreSaleMintScheduledStartTimestampChanged.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "KingdomlyNFT", event: "PreSaleMintScheduledStartTimestampChanged" },
+  async ({ event, context }) => {
   const entity: KingdomlyNFT_PreSaleMintScheduledStartTimestampChanged = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
     timestamp: event.params.timestamp,
@@ -99,9 +107,12 @@ KingdomlyNFT.PreSaleMintScheduledStartTimestampChanged.handler(async ({ event, c
   };
 
   context.KingdomlyNFT_PreSaleMintScheduledStartTimestampChanged.set(entity);
-});
+}
+);
 
-KingdomlyNFT.PreSaleMintStatusChanged.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "KingdomlyNFT", event: "PreSaleMintStatusChanged" },
+  async ({ event, context }) => {
   const entity: KingdomlyNFT_PreSaleMintStatusChanged = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
     status: event.params.status,
@@ -109,9 +120,12 @@ KingdomlyNFT.PreSaleMintStatusChanged.handler(async ({ event, context }) => {
   };
 
   context.KingdomlyNFT_PreSaleMintStatusChanged.set(entity);
-});
+}
+);
 
-KingdomlyNFT.SalePriceChanged.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "KingdomlyNFT", event: "SalePriceChanged" },
+  async ({ event, context }) => {
   const entity: KingdomlyNFT_SalePriceChanged = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
     mintId: event.params.mintId,
@@ -119,9 +133,12 @@ KingdomlyNFT.SalePriceChanged.handler(async ({ event, context }) => {
   };
 
   context.KingdomlyNFT_SalePriceChanged.set(entity);
-});
+}
+);
 
-KingdomlyNFT.TokensDelegateMinted.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "KingdomlyNFT", event: "TokensDelegateMinted" },
+  async ({ event, context }) => {
   const entity: KingdomlyNFT_TokensDelegateMinted = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
     vault: event.params.vault,
@@ -131,9 +148,12 @@ KingdomlyNFT.TokensDelegateMinted.handler(async ({ event, context }) => {
   };
 
   context.KingdomlyNFT_TokensDelegateMinted.set(entity);
-});
+}
+);
 
-KingdomlyNFT.TokensMinted.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "KingdomlyNFT", event: "TokensMinted" },
+  async ({ event, context }) => {
   const entity: KingdomlyNFT_TokensMinted = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
     recipient: event.params.recipient,
@@ -142,9 +162,12 @@ KingdomlyNFT.TokensMinted.handler(async ({ event, context }) => {
   };
 
   context.KingdomlyNFT_TokensMinted.set(entity);
-});
+}
+);
 
-KingdomlyNFT.Transfer.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "KingdomlyNFT", event: "Transfer" },
+  async ({ event, context }) => {
   const entity: KingdomlyNFT_Transfer = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
     from: event.params.from,
@@ -153,4 +176,5 @@ KingdomlyNFT.Transfer.handler(async ({ event, context }) => {
   };
 
   context.KingdomlyNFT_Transfer.set(entity);
-});
+}
+);

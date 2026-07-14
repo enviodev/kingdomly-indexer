@@ -1,8 +1,5 @@
 import assert from "assert";
-import { 
-  TestHelpers,
-  KingdomlyNFT_Approval
-} from "generated";
+import { TestHelpers, KingdomlyNFT_Approval } from "envio";
 const { MockDb, KingdomlyNFT } = TestHelpers;
 
 describe("KingdomlyNFT contract Approval event tests", () => {

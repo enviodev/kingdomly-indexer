@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=./node_modules/envio/evm.schema.json
 name: envio-indexer
-networks:
+chains:
 - id: 10143
   start_block: 0
   contracts:
@@ -22,5 +22,3 @@ networks:
     - event: TokensDelegateMinted(address indexed vault, address indexed hotWallet, uint256 amount, uint256 mintId)
     - event: TokensMinted(address indexed recipient, uint256 amount, uint256 mintId)
     - event: Transfer(address indexed from, address indexed to, uint256 indexed tokenId)
-unordered_multichain_mode: true
-preload_handlers: true
